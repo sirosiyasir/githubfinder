@@ -1,18 +1,14 @@
-import { useEffect, useState, useContext } from "react"
+import { useContext } from "react"
 import Spinner from "../layout/Spinner"
 import UserItem from "./UserItem"
 import GithubContext from "../../context/github/GithubContext"
 
 function UserResults() {
-  const { users, loading, fetchUsers } = useContext(GithubContext)
+  const { users, loading } = useContext(GithubContext)
 
   // bu const'ları burada oluşturmak yerine GithubContext'te oluşturduk ve buraya useContext sayesinde aktardık
   /* const [users, setUsers] = useState([])
   const [loading, setLoading] = useState(true) */
-
-  useEffect(() => {
-    fetchUsers()
-  }, [])
 
   // async ve await kullanarak data'yı getirdik ama bunu burada yazmak yerine GithubContext'te oluşturduk ve buraya useContext sayesinde aktardık
   /* const fetchUsers = async () => {
